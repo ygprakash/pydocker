@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <style>
+        table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+    </style>
+</head>
+<body ng-app="myapp">
+    <table style="width:100%" ng-controller="viewCtrl">
+      <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Email</th>
+          <th>Admin</th>
+          <th>Super User</th>
+          <th>Last Login</th>
+          <th>Date Joined</th>
+          <th>Team</th>
+          <th>Action</th>
+      </tr>
+        <tr ng-repeat="key in data">
+            <td>{{key['User Id']}}</td>
+          <td>{{key['User Name']}}</td>
+          <td>{{key['User Email']}}</td>
+                    <td>{{key['Is Admin']}} <select name="admin" ng-model="sel1"><option>{{key['Is Admin']}}</option>
+            <option>{{!key['Is Admin']}}</option></select></td>
+                    <td><select name="admin"><option>{{key['Is Admin']}}</option>
+            <option>{{!key['Is Admin']}}</option></select></td>
+          <td>{{key['Last Login']}}</td>
+          <td>{{key['Joining Date']}}</td>
+          <td>{{key['Team']}}</td>
+          <td><button type="button" ng-click="upd(key,sel1)" class="btn btn-primary">Update</button>
+          <button type="button" ng-click="del(key)" class="btn btn-warning">Delete</button> </td>
+        </tr>
+        </table>
+<div ng-controller="viewCtrl" ng-value="val">{{val}}</div>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+</body>
+</html>
